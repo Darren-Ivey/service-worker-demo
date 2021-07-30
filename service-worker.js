@@ -2,6 +2,7 @@
 var cacheName = 'v1.0';
 
 var cacheAssets = [
+  '/',
   'index.html',
   '/css/',
   '/css/style.css'
@@ -14,10 +15,9 @@ self.addEventListener('install', e => {
     caches
       .open(cacheName)
       .then(cache => {
-        console.log('Service Worker: Caching Files');
-        cache.addAll(cacheAssets);
+        console.log('Opened cache');
+        return cache.addAll(cacheAssets);
       })
-      .then(() => self.skipWaiting())
   );
 });
 
