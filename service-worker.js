@@ -22,21 +22,8 @@ self.addEventListener('install', e => {
 });
 
 // activation
-self.addEventListener('activate', (event) => {
-
-  var cacheAllowlist = ['pages-cache-v1', 'blog-posts-cache-v1'];
-
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheAllowlist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
+self.addEventListener('activate', e => {
+  console.log('Service Worker: Installed');
 });
 
 // fetch
