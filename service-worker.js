@@ -2,9 +2,7 @@
 var cacheName = 'v1.0';
 
 var cacheAssets = [
-  '/',
   'index.html',
-  '/css/',
   '/css/style.css'
 ]
 
@@ -17,6 +15,11 @@ self.addEventListener('install', e => {
       .then(cache => {
         console.log('Opened cache');
         return cache.addAll(cacheAssets);
+      })
+      .catch((err) => {
+        console.log({
+          err
+        })
       })
   );
 });
