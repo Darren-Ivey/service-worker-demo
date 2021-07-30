@@ -16,6 +16,11 @@ self.addEventListener('install', e => {
         console.log('Opened cache');
         return cache.addAll(cacheAssets);
       })
+      .catch((err) => {
+        console.log({
+          err
+        })
+      })
   );
 });
 
