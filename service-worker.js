@@ -3,6 +3,7 @@ var cacheName = 'v1.0';
 
 var cacheAssets = [
   'index.html',
+  '/css/',
   '/css/style.css'
 ]
 
@@ -29,5 +30,4 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   console.log('Service Worker: Fetching');
   e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
-
 });
