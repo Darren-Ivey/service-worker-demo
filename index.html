@@ -28,12 +28,14 @@
 </main>
 
 <script>
-  if('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      console.log('App is loading');
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
       navigator.serviceWorker.register('./service-worker.js')
-        .then( () => {
-          console.log("Service Worker has been registered");
+        .then((registration) => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch((err) => {
+          console.log("Service Worker has been registered:", err );
         })
     })
   }
